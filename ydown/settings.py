@@ -26,7 +26,7 @@ SECRET_KEY = 'rogya3r=iyw*m!uge5%9bzz)f5(-xczv%ex13re7vl6u@2de+q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://hraniytube.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
