@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block container %}
+    <center><h1>ВВЕДИТЕ ССЫЛКУ YUTUBE ВИДЕО</h1></center>
+
+
+    <!-- form start here -->
+
+    <br><br><br><br>
+<form action="{% url 'music_download' %}" method="get">
+
+  <div class="form-group">
+    <label  for="exampleInputEmail1">Введите URL</label>
+    <input name="url" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="https://www.youtube.com/">
+    <small id="emailHelp" class="form-text text-muted">Вставьте полную ссылку на YouTube видео</small>
+  </div>
+    <br>
+    <center>
+        <button type="submit" class="btn btn-primary">Скачать</button>
+    </center>
+</form>
+
+    <!-- form end here -->
+
+<!-- comments start here-->
+
+<div id="disqus_thread" style="margin-top: 200px"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://ytb-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<!-- comments end here -->
+<!-- container end here-->
+{% endblock %}
+</body>
+</html>

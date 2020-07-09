@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+   <!--youtube video start here -->
+{% block container %}
+    <center><h3>Ваше видео:</h3></center>
+
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src={{embd}} allowfullscreen></iframe>
+    </div>
+
+    <!-- youtube video end here -->
+    <br>
+
+    <!-- TABLE start here -->
+
+
+      <table class="table" style="margin-bottom: 200px">
+  <thead class="thead-dark">
+    <tr>
+
+      <th scope="col" style="width: 80%">Качество</th>
+      <th scope="col">Скачать</th>
+
+    </tr>
+  </thead>
+    {% for i in rsl %}
+  <tbody>
+    <tr>
+      <td>{{i}}</td>
+        <!-- Кнопка для скачивания видео-->
+      <td>
+          <form action="{% url 'download_complete' i %}" method="POST" class="post-form" >{% csrf_token %}<input type="submit" class="btn btn-warning" value="СКАЧАТЬ" data-toggle="modal" data-target="#myModal"></input></form></td>
+    </tr>
+  </tbody>
+
+
+          <!-- Модальное окно -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        Не закрывайте страницу, ваше видео ЗАГРУЖАЕТСЯ! По окончанию загрузки вы получите уведомление.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary " data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+          {% endfor %}
+
+
+</table>
+
+
+
+    <!-- TABLE end here -->
+
+
+{% endblock %}
+
+<!-- container end here
+
+</body>
+</html>
