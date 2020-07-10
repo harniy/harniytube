@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% block container %}
-    <center><h1 style="color: green">Видео скачано!!!</h1></center>
-{% endblock %}
+    <center><h1 style="color: green">Для скачивания видео нажмите ⋮ и затем скачать</h1></center>
+<br>
+<center>
+<video controls autoplay name="media" style="float:center"><source src="{{media_url}}" type="video/mp4"></video>
+</center>
+    {% endblock %}
 
