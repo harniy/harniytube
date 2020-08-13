@@ -48,7 +48,7 @@ def download_complete(request, res):
             media_url = r['formats'][-1]['url']
         return render(request, 'download_complete.html', {'media_url': media_url})
     else:
-        return render(request, 'sorry.html')
+        pass
 
 
 
