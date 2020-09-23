@@ -30,7 +30,7 @@ def yt_download(request):
         embed_link = url.replace("watch?v=", "embed/")
         res = embed_link.split("&")
         res = res[0]
-        return render(request, 'yt_download.html', {'rsl': resolutions, 'embd': res, 'url': url})
+        return render(request, 'yt_download.html', {'rsl': resolutions, 'embd': res})
     except:
         return render(request, 'sorry.html')
 
