@@ -28,9 +28,9 @@ def yt_download(request):
         """метод dict.fromkeys нужен что бы удалить лишние значения из списка"""
         resolutions = list(dict.fromkeys(resolutions))
         embed_link = url.replace("watch?v=", "embed/")
-        print(resolutions)
-        print((embed_link))
-        return render(request, 'yt_download.html', {'rsl': resolutions, 'embd': embed_link})
+        res = embed_link.split("&")
+        res = res[0]
+        return render(request, 'yt_download.html', {'rsl': resolutions, 'embd': res, 'url': url})
     except:
         return render(request, 'sorry.html')
 
