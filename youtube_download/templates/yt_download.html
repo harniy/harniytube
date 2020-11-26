@@ -27,7 +27,11 @@
       <td>{{i}}</td>
         <!-- Кнопка для скачивания видео-->
       <td>
-          <form action="{% url 'download_complete' i %}" method="POST" class="post-form" >{% csrf_token %}<input type="submit" class="btn btn-warning" value="СКАЧАТЬ" data-toggle="modal" data-target="#myModal"></input></form></td>
+          <form action="{% url 'download_complete' i %}" method="POST" class="post-form" >
+              {% csrf_token %}
+              <input type="submit" class="btn btn-warning" value="СКАЧАТЬ" data-toggle="modal" data-target="#myModal">
+
+         </form></td>
     </tr>
   </tbody>
 

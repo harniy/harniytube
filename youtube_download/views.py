@@ -14,25 +14,26 @@ def ytb_down(request):
 
 def yt_download(request):
     global url
-    try:
-        """метод request берет всю инфу со страницы, затем GET берет из формы input и get получает введенную инфу"""
-        url = request.GET.get('url')  # url это name='url' в форме input так назвал
-        """создаем объект, что бы узнать какое видео качать"""
-        yt = YouTube(url)
-        """создаем пустой список, куда будем добавлять элементы из цикла for"""
-        resolutions = []
-        """берем все полученные данные с url"""
-        strm_all = yt.streams.filter(progressive=True, file_extension='mp4').all()
-        for i in strm_all:
-            resolutions.append(i.resolution)
-        """метод dict.fromkeys нужен что бы удалить лишние значения из списка"""
-        resolutions = list(dict.fromkeys(resolutions))
-        embed_link = url.replace("watch?v=", "embed/")
-        res = embed_link.split("&")
-        res = res[0]
-        return render(request, 'yt_download.html', {'rsl': resolutions, 'embd': res})
-    except:
-        return render(request, 'sorry.html')
+    # try:
+    """метод request берет всю инфу со страницы, затем GET берет из формы input и get получает введенную инфу"""
+    url = request.GET.get('url')  # url это name='url' в форме input так назвал
+    """создаем объект, что бы узнать какое видео качать"""
+    yt = YouTube(url)
+    """создаем пустой список, куда будем добавлять элементы из цикла for"""
+    resolutions = []
+    """берем все полученные данные с url"""
+    strm_all = yt.streams.filter(progressive=True, file_extension='mp4').all()
+    for i in strm_all:
+        resolutions.append(i.resolution)
+    """метод dict.fromkeys нужен что бы удалить лишние значения из списка"""
+    resolutions = list(dict.fromkeys(resolutions))
+    embed_link = url.replace("watch?v=", "embed/")
+    res = embed_link.split("&")
+    res = res[0]
+
+    return render(request, 'yt_download.html', {'rsl': resolutions, 'embd': res})
+    # except:
+    #     return render(request, 'sorry.html')
 
 
 def download_complete(request, res):
